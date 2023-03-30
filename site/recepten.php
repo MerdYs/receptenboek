@@ -1,6 +1,12 @@
 <?php
 session_start();
+require 'database.php';
 
+$stmt = $conn->prepare("SELECT * FROM recept");
+$stmt->execute();
+
+$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+$recepten = $stmt->fetchAll();
 
 ?>
 
@@ -18,26 +24,21 @@ session_start();
 
 <body>
 
+    <?php include 'nav.php'; ?>
 
+    <div class="row">
+        <?php foreach ($recepten as $recept) { ?>
 
-    <div class="home">
-        <?php include 'nav.php'; ?>
-
-        <div class="flex-container">
-            <div class="flex-item">
-                <h2><b>Welkom op de Épicer site</b></h2>
-                <p>De ideale site voor u om de heerlijkste recepten uit de Mediterraanse keuken te leren en maken.
-                    <br>
-                    <b>WAARSCHUWING</b>
-                    <br>
-                    ALLE RECEPTEN DIE U VINDT OP DE SITE ZIJN TURKS
-                    <br>
-                    <i>ZODRA DE BEHEERDER ER ACHTERKOMT DAT ER EEN GRIEKS RECEPT IS WORDT UW RECEPT EN ACCOUNT VERWIJDERDT</i>
-                </p>
+            <div class="col-md-4">
+                <div class="card w-100">
+                    <img src="images/<?php echo $recept["afbeelding"] ?>">
+                    <div class="container">
+                        <h4><b><?php echo $recept["naam"] ?></b></h4>
+                        <a href="recept.php?id=<?php echo $recept["id"] ?>"><button>Bekijk</button></a>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <?php include 'footer.php' ?>
+        <?php } ?>
     </div>
 </body>
 
