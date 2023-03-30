@@ -73,7 +73,7 @@ $ingredienten = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h1>Instructie</h1>
 
                 <h3>Ingrediënten</h3>
-                <p><?php echo $ingredienten['ingredient_naam'] ?></p>
+                <p><?php ?></p>
 
 
                 <h3>Bereidingswijze:</h3>
