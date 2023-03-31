@@ -55,6 +55,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
             <input type="submit" value="Log in" name="submit">
         </form>
     </section>
+    <?php include 'footer.php' ?>
 </body>
 
 </html>

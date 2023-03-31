@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'database.php';
 
 $stmt = $conn->prepare("SELECT *, recept.id AS recept_ID FROM recept
@@ -13,7 +13,7 @@ $recepten_duurheid = $stmt->fetchAll();
 
 
 $stmt = $conn->prepare("SELECT *, recept.id AS recept_ID FROM recept
-ORDER BY moeilijkheid ASC");
+ORDER BY moeilijkheid DESC");
 $stmt->execute();
 
 // set the resulting array to associative
@@ -22,18 +22,17 @@ $recepten_moeilijkheid = $stmt->fetchAll();
 
 
 
-/* $stmt = $conn->prepare("SELECT recept.titel, SUM(aantal_ingredient.aantal) as total, recept.duur AS duur, recept.menugang AS menugang,
-recept.moeilijkheid AS moeilijkheid, recept.instructies AS instructies, recept.id AS recept_ID
-FROM aantal_ingredient
-JOIN recept ON recept.id = aantal_ingredient.recept_id 
-GROUP BY recept.titel 
+$stmt = $conn->prepare("SELECT recept.naam, SUM(recept_ingredient.aantal) as total, recept.duur AS duur, recept.soort AS soort,
+recept.moeilijkheid AS moeilijkheid, recept.instructie AS instructies, recept.id AS recept_ID
+FROM recept_ingredient
+JOIN recept ON recept.id = recept_ingredient.recept_id 
+GROUP BY recept.naam 
 ORDER BY total DESC;");
-$stmt->execute(); 
+$stmt->execute();
 
 // set the resulting array to associative
 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $recepten_ingredienten = $stmt->fetchAll();
-*/
 
 ?>
 
@@ -42,18 +41,18 @@ $recepten_ingredienten = $stmt->fetchAll();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Spacials</title>
 </head>
 
 <body>
+
     <form action="" method="post">
         <a href="specials.php"><button type="submit" name="tijdsduur">Filter op langste recept</button></a>
         <a href="specials.php"><button type="submit" name="moeilijkheid">Filter op moeilijkheid</button></a>
         <a href="specials.php"><button type="submit" name="ingredienten">Filter op meeste ingrediënten</button></a>
+        <button type="submit"><a href="index.php">Terug</a></button>
     </form>
+
     <?php if (isset($_POST['tijdsduur'])) { ?>
 
         <table>
@@ -114,6 +113,37 @@ $recepten_ingredienten = $stmt->fetchAll();
                         <td> <?php echo $recept["instructie"] ?> </td>
                         <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["id"] ?>"> Update Data </a> </td>
                         <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["id"] ?>"> Delete Data </a> </td>
+                    </tr>
+
+                <?php } ?>
+            </tbody>
+        </table>
+    <?php } else if (isset($_POST['ingredienten'])) { ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Duur</th>
+                    <th>Menugang</th>
+                    <th>Moeilijkheid</th>
+                    <th>Instructies</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <?php foreach ($recepten_ingredienten as $recept) { ?>
+
+                    <tr>
+                        <td> <?php echo $recept["naam"] ?> </td>
+                        <td> <?php echo $recept["duur"] ?> </td>
+                        <td> <?php echo $recept["soort"] ?> </td>
+                        <td> <?php echo $recept["instructies"] ?> </td>
+                        <td> <?php echo $recept["moeilijkheid"] ?> </td>
+                        <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["recept_ID"] ?>"> Update Data </a> </td>
+                        <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["recept_ID"] ?>"> Delete Data </a> </td>
                     </tr>
 
                 <?php } ?>

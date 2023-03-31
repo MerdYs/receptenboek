@@ -28,13 +28,11 @@ $all_ingredienten = $stmt->fetchAll();
         <tr>
             <th>ID</th>
             <th>naam</th>
-            <th>aantal</th>
         </tr>
         <?php foreach ($all_ingredienten as $ingredient) : ?>
             <tr>
                 <td><?php echo $ingredient["id"] ?></td>
                 <td><?php echo $ingredient["naam"] ?></td>
-                <td><?php echo $ingredient["aantal"] ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

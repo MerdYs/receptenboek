@@ -51,6 +51,7 @@ if (isset($_POST['submit'])) {
             <input type="submit" value="Registreren" name="submit">
         </form>
     </section>
+    <?php include 'footer.php' ?>
 </body>
 
 </html>

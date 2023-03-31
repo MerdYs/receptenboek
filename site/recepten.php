@@ -40,6 +40,7 @@ $recepten = $stmt->fetchAll();
             </div>
         <?php } ?>
     </div>
+    <?php include 'footer.php' ?>
 </body>
 
 </html>

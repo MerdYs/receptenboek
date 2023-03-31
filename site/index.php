@@ -30,9 +30,9 @@ session_start();
                     <br>
                     <b>WAARSCHUWING</b>
                     <br>
-                    ALLE RECEPTEN DIE U VINDT OP DE SITE ZIJN TURKS
+                    ALLE RECEPTEN DIE U VINDT OP DE SITE ZIJN <b>TURKS</b>
                     <br>
-                    <i>ZODRA DE BEHEERDER ER ACHTERKOMT DAT ER EEN GRIEKS RECEPT IS WORDT UW RECEPT EN ACCOUNT VERWIJDERDT</i>
+                    <i>ZODRA DE BEHEERDER ER ACHTERKOMT DAT ER EEN GRIEKS RECEPT IS WORDT UW RECEPT EN ACCOUNT <b>VERWIJDERDT</b></i>
                 </p>
             </div>
         </div>
