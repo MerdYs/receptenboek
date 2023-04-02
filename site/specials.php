@@ -73,12 +73,8 @@ $recepten_ingredienten = $stmt->fetchAll();
     <br>
     <br>
     <br>
-    <br>
-    <br>
 
-    <?php if (isset($_POST['tijdsduur'])) { ?>
-
-        <table class="table">
+    <?php if (isset($_POST['tijdsduur'])) { ?> <table class="table">
             <tr>
                 <th>Titel</th>
                 <th>Duur</th>

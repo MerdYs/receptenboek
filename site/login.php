@@ -5,11 +5,6 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
     $email = $_POST['email'];
     $wachtwoord = $_POST['wachtwoord'];
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Email is niet correct";
-        exit;
-    }
-
     require 'database.php';
 
     $stmt = $conn->prepare("SELECT * FROM gebruiker WHERE email = :email AND wachtwoord = :wachtwoord");

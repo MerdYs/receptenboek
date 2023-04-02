@@ -10,7 +10,7 @@ $stmt->execute();
 
 $recept = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$stmt = $conn->prepare("SELECT *, recept.id AS recept_ID, ingredient.naam AS ingredient_naam FROM recept
+$stmt = $conn->prepare("SELECT *, recept.id AS recept_ID, ingredient.naam AS ingredient_naam FROM recept 
 LEFT JOIN recept_ingredient ON recept_ingredient.recept_id = recept.id
 LEFT JOIN ingredient ON ingredient.id = recept_ingredient.ingredient_id
 WHERE recept.id = :id");
