@@ -41,113 +41,121 @@ $recepten_ingredienten = $stmt->fetchAll();
 <html lang="en">
 
 <head>
-    <title>Spacials</title>
+    <title>Specials</title>
 </head>
 
 <body>
+
+    <?php include 'nav.php'; ?>
 
     <form action="" method="post">
         <a href="specials.php"><button type="submit" name="tijdsduur">Filter op langste recept</button></a>
         <a href="specials.php"><button type="submit" name="moeilijkheid">Filter op moeilijkheid</button></a>
         <a href="specials.php"><button type="submit" name="ingredienten">Filter op meeste ingrediënten</button></a>
-        <button type="submit"><a href="index.php">Terug</a></button>
     </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <?php if (isset($_POST['tijdsduur'])) { ?>
 
-        <table>
-            <thead>
+        <table class="table">
+            <tr>
+                <th>Titel</th>
+                <th>Duur</th>
+                <th>Menugang</th>
+                <th>Instructie</th>
+                <th>Moeilijkheid</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            <?php foreach ($recepten_duurheid as $recept) { ?>
+
                 <tr>
-                    <th>Titel</th>
-                    <th>Duur</th>
-                    <th>Menugang</th>
-                    <th>Moeilijkheid</th>
-                    <th>Instructies</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <td> <?php echo $recept["naam"] ?> </td>
+                    <td> <?php echo $recept["duur"] ?> </td>
+                    <td> <?php echo $recept["soort"] ?> </td>
+                    <td> <?php echo $recept["instructie"] ?> </td>
+                    <td> <?php echo $recept["moeilijkheid"] ?> </td>
+                    <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["id"] ?>"> Update</a></td>
+                    <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["id"] ?>"> Delete</a></td>
                 </tr>
-            </thead>
 
-            <tbody>
-
-                <?php foreach ($recepten_duurheid as $recept) { ?>
-
-                    <tr>
-                        <td> <?php echo $recept["naam"] ?> </td>
-                        <td> <?php echo $recept["duur"] ?> </td>
-                        <td> <?php echo $recept["soort"] ?> </td>
-                        <td> <?php echo $recept["moeilijkheid"] ?> </td>
-                        <td> <?php echo $recept["instructie"] ?> </td>
-                        <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["id"] ?>"> Update</a></td>
-                        <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["id"] ?>"> Delete</a></td>
-                    </tr>
-
-                <?php } ?>
-            </tbody>
+            <?php } ?>
         </table>
 
     <?php } else if (isset($_POST['moeilijkheid'])) { ?>
 
-        <table>
-            <thead>
+        <table class="table">
+            <tr>
+                <th>Titel</th>
+                <th>Duur</th>
+                <th>Menugang</th>
+                <th>Instructie</th>
+                <th>Moeilijkheid</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            <?php foreach ($recepten_moeilijkheid as $recept) { ?>
+
                 <tr>
-                    <th>Titel</th>
-                    <th>Duur</th>
-                    <th>Menugang</th>
-                    <th>Moeilijkheid</th>
-                    <th>Instructies</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <td> <?php echo $recept["naam"] ?> </td>
+                    <td> <?php echo $recept["duur"] ?> </td>
+                    <td> <?php echo $recept["soort"] ?> </td>
+                    <td> <?php echo $recept["instructie"] ?> </td>
+                    <td> <?php echo $recept["moeilijkheid"] ?> </td>
+                    <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["id"] ?>"> Update Data </a> </td>
+                    <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["id"] ?>"> Delete Data </a> </td>
                 </tr>
-            </thead>
 
-            <tbody>
-
-                <?php foreach ($recepten_moeilijkheid as $recept) { ?>
-
-                    <tr>
-                        <td> <?php echo $recept["naam"] ?> </td>
-                        <td> <?php echo $recept["duur"] ?> </td>
-                        <td> <?php echo $recept["soort"] ?> </td>
-                        <td> <?php echo $recept["moeilijkheid"] ?> </td>
-                        <td> <?php echo $recept["instructie"] ?> </td>
-                        <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["id"] ?>"> Update Data </a> </td>
-                        <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["id"] ?>"> Delete Data </a> </td>
-                    </tr>
-
-                <?php } ?>
-            </tbody>
+            <?php } ?>
         </table>
     <?php } else if (isset($_POST['ingredienten'])) { ?>
-        <table>
-            <thead>
+        <table class="table">
+            <tr>
+                <th>Titel</th>
+                <th>Duur</th>
+                <th>Menugang</th>
+                <th>Instructie</th>
+                <th>Moeilijkheid</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            <?php foreach ($recepten_ingredienten as $recept) { ?>
+
                 <tr>
-                    <th>Titel</th>
-                    <th>Duur</th>
-                    <th>Menugang</th>
-                    <th>Moeilijkheid</th>
-                    <th>Instructies</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <td> <?php echo $recept["naam"] ?> </td>
+                    <td> <?php echo $recept["duur"] ?> </td>
+                    <td> <?php echo $recept["soort"] ?> </td>
+                    <td> <?php echo $recept["instructies"] ?> </td>
+                    <td> <?php echo $recept["moeilijkheid"] ?> </td>
+                    <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["recept_ID"] ?>"> Update Data </a> </td>
+                    <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["recept_ID"] ?>"> Delete Data </a> </td>
                 </tr>
-            </thead>
 
-            <tbody>
-
-                <?php foreach ($recepten_ingredienten as $recept) { ?>
-
-                    <tr>
-                        <td> <?php echo $recept["naam"] ?> </td>
-                        <td> <?php echo $recept["duur"] ?> </td>
-                        <td> <?php echo $recept["soort"] ?> </td>
-                        <td> <?php echo $recept["instructies"] ?> </td>
-                        <td> <?php echo $recept["moeilijkheid"] ?> </td>
-                        <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["recept_ID"] ?>"> Update Data </a> </td>
-                        <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["recept_ID"] ?>"> Delete Data </a> </td>
-                    </tr>
-
-                <?php } ?>
-            </tbody>
+            <?php } ?>
         </table>
     <?php } ?>
 </body>

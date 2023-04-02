@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
         $stmt->bindParam(':achternaam', $achternaam);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':wachtwoord', $wachtwoord);
-        $stmt->bindParam('id', $id);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
 
         header("location: beheer_gebruikers.php");

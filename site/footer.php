@@ -7,7 +7,7 @@
 
 <footer>
     <div class="footer-container">
-        <p>Gemaakt door Mert Babur</p>
+        <p>Gemaakt door: Mert Babur (183227, SD2A2)</p>
     </div>
 </footer>
 

@@ -43,7 +43,7 @@ $aantal_recepten = $stmt->fetch();
             if (isset($_SESSION["soort"]) && $_SESSION["soort"] == "Beheerder") {
                 echo '<li><a href="ingredienten.php">Ingredienten</a></li>';
                 echo '<li><a href="recepten.php">Recepten</a></li>';
-                echo '<li><a href="specials.php">Specials</a></li>';
+                echo '<li><a href="specials.php">Filters</a></li>';
                 echo '<li><a href="beheer_recepten.php">Recepten Bhr</a></li>';
                 echo '<li><a href="beheer_gebruikers.php">Gebruikers</a></li>';
                 echo '<li><a href="logout.php">Logout</a></li>';
@@ -55,7 +55,7 @@ $aantal_recepten = $stmt->fetch();
             } else if (isset($_SESSION["soort"]) && $_SESSION["soort"] == "Gebruiker") {
                 echo '<li><a href="ingredienten.php">Ingredienten</a></li>';
                 echo '<li><a href="recepten.php">Recepten</a></li>';
-                echo '<li><a href="specials.php">Specials</a></li>';
+                echo '<li><a href="specials.php">Filters</a></li>';
                 echo '<li><a href="logout.php">Logout</a></li>';
             }
 

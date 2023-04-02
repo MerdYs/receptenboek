@@ -33,7 +33,9 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+
     <?php include 'nav.php'; ?>
+
     <section class="register">
         <form action="" method="post">
             <label for="voornaam">Voornaam:</label>
