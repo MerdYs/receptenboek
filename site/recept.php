@@ -77,9 +77,6 @@ $ingredienten = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-
-    </div>
-
 </body>
 
 </html>

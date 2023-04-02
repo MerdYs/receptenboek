@@ -4,15 +4,15 @@ require 'database.php';
 
 $id = $_GET['id'];
 
-// Haal de gebruikersgegevens op uit de database op basis van de gebruiker_id die is opgeslagen in de sessie
+// Haal de gegevens van de ingredienten op uit de database
 $stmt = $conn->prepare("SELECT * FROM ingredient WHERE id = :id");
 $stmt->bindParam(':id', $id);
 $stmt->execute();
 $ingredient = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Verwerk het formulier indien deze is verzonden
+// Verwerk het formulier
 if (isset($_POST['submit'])) {
-    // Haal de gegevens uit het formulier
+    // Haal de gegevens uit formulier
     $naam = $_POST['naam'];
 
 
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 
         $ingredient = $_POST["naam"];
 
-        // Update de gebruikersgegevens in de database
+        // Update de ingredient gegevens in de database
         $stmt = $conn->prepare("UPDATE ingredient SET naam = :naam WHERE id = :id");
         $stmt->bindParam(':naam', $naam);
         $stmt->bindParam(':id', $id);

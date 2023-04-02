@@ -3,14 +3,14 @@ session_start();
 require 'database.php';
 
 
-
+// Verwerk het formulier
 if (isset($_POST['submit'])) {
-
+    // Haal gegevens uit formulier
     $voornaam = $_POST['voornaam'];
     $achternaam = $_POST['achternaam'];
     $email = $_POST['email'];
     $wachtwoord = $_POST['wachtwoord'];
-
+    // Voegt alle waarden die getypt is in de fomulier naar de database
     $stmt = $conn->prepare("INSERT INTO gebruiker (voornaam, achternaam, email, wachtwoord) 
     VALUES (:voornaam, :achternaam, :email, :wachtwoord)");
     $stmt->bindParam(":voornaam", $voornaam);

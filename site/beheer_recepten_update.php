@@ -4,15 +4,15 @@ require 'database.php';
 
 $id = $_GET['id'];
 
-// Haal de gebruikersgegevens op uit de database op basis van de gebruiker_id die is opgeslagen in de sessie
+// Haal de recept gegevens op uit de database
 $stmt = $conn->prepare("SELECT * FROM recept WHERE id = :id");
 $stmt->bindParam(':id', $id);
 $stmt->execute();
 $recept = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Verwerk het formulier indien deze is verzonden
+// Verwerk formulier
 if (isset($_POST['submit'])) {
-    // Haal de gegevens uit het formulier
+    // Haal de gegevens uit formulier
     $gebruiker_id = $_POST['gebruiker_id'];
     $naam = $_POST['naam'];
     $duur = $_POST['duur'];
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 
         $recept = $_POST["gebruiker_id"];
 
-        // Update de gebruikersgegevens in de database
+        // Update de gegevens van de recepten in de database
         $stmt = $conn->prepare("UPDATE recept SET gebruiker_id = :gebruiker_id, naam = :naam, duur = :duur, soort = :soort, afbeelding = :afbeelding, instructie = :instructie, moeilijkheid = :moeilijkheid WHERE id = :id");
         $stmt->bindParam(':gebruiker_id', $gebruiker_id);
         $stmt->bindParam(':naam', $naam);

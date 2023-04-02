@@ -4,13 +4,13 @@ require 'database.php';
 
 $id = $_GET['id'];
 
-// Haal de gebruikersgegevens op uit de database op basis van de gebruiker_id die is opgeslagen in de sessie
+// Gebruikersgegevens worden opgehaald uit de database
 $stmt = $conn->prepare("SELECT * FROM gebruiker WHERE id = :id");
 $stmt->bindParam(':id', $id);
 $stmt->execute();
 $gebruiker = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Verwerk het formulier indien deze is verzonden
+// Verwerk formulier
 if (isset($_POST['submit'])) {
     // Haal de gegevens uit het formulier
     $voornaam = $_POST['voornaam'];
