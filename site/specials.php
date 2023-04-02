@@ -85,8 +85,6 @@ $recepten_ingredienten = $stmt->fetchAll();
                 <th>Menugang</th>
                 <th>Instructie</th>
                 <th>Moeilijkheid</th>
-                <th>Update</th>
-                <th>Delete</th>
             </tr>
 
             <?php foreach ($recepten_duurheid as $recept) { ?>
@@ -97,8 +95,6 @@ $recepten_ingredienten = $stmt->fetchAll();
                     <td> <?php echo $recept["soort"] ?> </td>
                     <td> <?php echo $recept["instructie"] ?> </td>
                     <td> <?php echo $recept["moeilijkheid"] ?> </td>
-                    <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["id"] ?>"> Update</a></td>
-                    <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["id"] ?>"> Delete</a></td>
                 </tr>
 
             <?php } ?>
@@ -113,8 +109,6 @@ $recepten_ingredienten = $stmt->fetchAll();
                 <th>Menugang</th>
                 <th>Instructie</th>
                 <th>Moeilijkheid</th>
-                <th>Update</th>
-                <th>Delete</th>
             </tr>
 
             <?php foreach ($recepten_moeilijkheid as $recept) { ?>
@@ -125,8 +119,6 @@ $recepten_ingredienten = $stmt->fetchAll();
                     <td> <?php echo $recept["soort"] ?> </td>
                     <td> <?php echo $recept["instructie"] ?> </td>
                     <td> <?php echo $recept["moeilijkheid"] ?> </td>
-                    <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["id"] ?>"> Update Data </a> </td>
-                    <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["id"] ?>"> Delete Data </a> </td>
                 </tr>
 
             <?php } ?>
@@ -139,8 +131,6 @@ $recepten_ingredienten = $stmt->fetchAll();
                 <th>Menugang</th>
                 <th>Instructie</th>
                 <th>Moeilijkheid</th>
-                <th>Update</th>
-                <th>Delete</th>
             </tr>
 
             <?php foreach ($recepten_ingredienten as $recept) { ?>
@@ -151,8 +141,6 @@ $recepten_ingredienten = $stmt->fetchAll();
                     <td> <?php echo $recept["soort"] ?> </td>
                     <td> <?php echo $recept["instructies"] ?> </td>
                     <td> <?php echo $recept["moeilijkheid"] ?> </td>
-                    <td> <a href="beheer_recepten_update.php?id=<?php echo $recept["recept_ID"] ?>"> Update Data </a> </td>
-                    <td> <a href="beheer_recepten_delete.php?id=<?php echo $recept["recept_ID"] ?>"> Delete Data </a> </td>
                 </tr>
 
             <?php } ?>
