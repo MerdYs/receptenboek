@@ -36,8 +36,45 @@
     color: red;
 }
 
+.home{
+	display: cover;
+    background: url("../images/voorpagina.png");
+	background-attachment: fixed;
+    height: 100vh;
+    color: black;
+    min-height: 500px;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
 
-.login, .register{
+.flex-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 700px;
+  }
+  
+  .flex-item {
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 20px;
+	max-width: 600px;
+	text-align: center;
+  }
+  
+  h2 {
+	margin-top: 0;
+  }
+  
+  p {
+	margin-bottom: 0;
+  }
+
+  .login, .register{
 	display: cover;
     background: url("../images/Istanbul.png") no-repeat center center fixed;
 	background-attachment: fixed;
@@ -51,6 +88,20 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 }
+
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+  }
+  
+  .card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+	padding: 2px 16px;
+  }
 
 form {
 	width: 300px;
@@ -100,59 +151,7 @@ input[type=submit]:hover {
 	background-color: blue;
 	text-align: center;
 }
-
-.card {
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	transition: 0.3s;
-  }
   
-  .card:hover {
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  .container {
-	padding: 2px 16px;
-  }
-
-.home{
-	display: cover;
-    background: url("../images/voorpagina.png");
-	background-attachment: fixed;
-    height: 100vh;
-    color: black;
-    min-height: 500px;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-}
-
-.flex-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 700px;
-  }
-  
-  .flex-item {
-	background-color: #f2f2f2;
-	padding: 20px;
-	border-radius: 20px;
-	max-width: 600px;
-	text-align: center;
-  }
-  
-  h2 {
-	margin-top: 0;
-  }
-  
-  p {
-	margin-bottom: 0;
-  }
-  
-
 footer {
 	background-color: black;
 	color: white;
@@ -167,4 +166,3 @@ footer {
 	max-width: 1200px;
 	margin: 0 auto;
   }
-  
